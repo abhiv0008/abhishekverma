@@ -43,7 +43,7 @@
         button:hover {
             background-color: #ff4500;
         }
-        #messageSection {
+        .messageContainer {
             display: none;
             margin-top: 20px;
             padding: 20px;
@@ -67,7 +67,6 @@
     <script>
         function showMessage() {
             var name = document.getElementById("nameInput").value;
-            var messageSection = document.getElementById("messageSection");
             if (name) {
                 // Naya page kholne ke liye
                 var newWindow = window.open("", "_blank");
@@ -95,10 +94,15 @@
                     <body>
                         <div class="decoration">🎉✨ Happy New Year! 🎊✨</div>
                         <p>Wishing you a wonderful year ahead, <strong>${name}</strong>!</p>
+                        <script>
+                            setTimeout(() => {
+                                window.close(); // Optionally close the window after a few seconds
+                            }, 10000); // Change this value to control the duration the message is shown
+                        </script>
                     </body>
                     </html>
                 `);
-                messageSection.style.display = 'block'; // Ye line ab koi kaam nahi karegi
+                newWindow.document.close(); // Ensure document is properly closed
             } else {
                 alert("Please enter your name.");
             }
