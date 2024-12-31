@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year Celebration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff6347;
+        }
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+        #formSection {
+            margin: 20px 0;
+            display: none;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #ff6347;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #ff6347;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        #messageSection {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px dashed red; /* Updated to solid red */
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            animation: blink 1s infinite; /* Blinking effect for the outer border */
+        }
+        .decoration {
+            font-size: 30px;
+            margin: 10px 0;
+            animation: blinkText 1s infinite; /* Blinking effect for the text */
+        }
+        
+        @keyframes blink {
+            0% { border-color: transparent; }
+            50% { border-color: red; }
+            100% { border-color: transparent; }
+        }
+        
+        @keyframes blinkText {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script>
+        function showMessage() {
+            var name = document.getElementById("nameInput").value;
+            var messageSection = document.getElementById("messageSection");
+            if (name) {
+                messageSection.innerHTML = `<div class="decoration">🎉✨ Happy New Year! 🎊✨</div><p>Wishing you a wonderful year ahead, <strong>${name}</strong>!</p>`;
+                messageSection.style.display = 'block';
+            } else {
+                alert("Please enter your name.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Hello</h1> <!-- Updated greeting -->
+    <p><a href="#" onclick="document.getElementById('formSection').style.display='block'; return false;">Click here to enter</a></p>
+
+    <div id="formSection">
+        <h2>Enter your name:</h2>
+        <input type="text" id="nameInput" placeholder="Your Name">
+        <button onclick="showMessage()">Submit</button>
+    </div>
+
+    <div id="messageSection"></div>
+</body>
+</html>
